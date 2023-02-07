@@ -296,7 +296,8 @@ def _ecr_login(project, registry, logger, reactor):
     region is us-west-1 but the ecr repository is in us-est-1 in the other account. The calling user needs 
     ecr:GetAuthorizationToken and must use the same reason as the ecr parent account. 
     '''
-    ecr_region = project.get_property('docker_set_ecr_region', "")
+
+    ecr_region = project.get_property('docker_ecr_region', "")
     aws_sub_command = ['--region', ecr_region] if ecr_region else []
     aws_sub_command += ['ecr', 'get-login-password']
 
