@@ -406,7 +406,7 @@ def write_docker_build_file(project, build_image, dist_dir, gather_dependencies_
     setup_script = os.path.join(dist_dir, "Dockerfile")
     with open(setup_script, "w") as setup_file:
         setup_file.write(render_docker_buildfile(project, build_image, gather_dependencies_locally))
-    os.chmod(setup_script, 0o755)
+    os.chmod(setup_script, 0o644)
 
 
 def render_docker_buildfile(project, build_image, gather_dependencies_locally):
