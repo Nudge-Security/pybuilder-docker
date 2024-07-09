@@ -215,12 +215,12 @@ def _run_docker_compose(project, logger, reactor: Reactor):
         fp_err = open("{}/{}".format(prepare_logs_directory(project), "docker_compose_run.err.txt"), 'w')
         args = ['env',
                 compose_variables,
-                "docker-compose",
+                "docker compose",
                 "-f",
                 compose_file,
                 "up"]
 
-        logger.debug(f"Running docker-compose with {args}")
+        logger.debug(f"Running docker compose with {args}")
         subprocess.Popen(args, stderr=fp_err, stdout=fp)
 
         # give it a bit of time to start up
@@ -262,7 +262,7 @@ def _docker_compose_down(project, logger, reactor: Reactor):
     if compose_file:
         logger.info(f"Docker Compose Down: {compose_file}")
         # clean up our test run
-        exec_command("docker-compose", [
+        exec_command("docker compose", [
             "-f",
             compose_file,
             "down"
