@@ -442,7 +442,7 @@ def _get_docker_compose_file(project):
 
 
 def get_dist_file_name(project):
-    default_dist_file = "{name}-{version}.tar.gz".format(name=project.name, version=project.version)
+    default_dist_file = f"{project.name}-{project.version}.tar.gz".replace('-', '_')
     return project.get_property("docker_package_dist_file", default_dist_file)
 
 
